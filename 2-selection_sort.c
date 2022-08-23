@@ -8,7 +8,7 @@
 void selection_sort(int *array, size_t size)
 {
 	size_t step, i = 0;
-	int min_idx, pass = 0;
+	size_t min_idx, pass = 0;
 
 	if (!array || size == 0)
 		return;
@@ -24,8 +24,9 @@ void selection_sort(int *array, size_t size)
 				min_idx = i;
 				swap (&array[min_idx], &array[step]);
 				pass = 1;
-				print_array(array, size);
 			}
+			if (step !=min_idx)
+				print_array(array, size);
 		}
 		if (pass == 0)
 			break;
