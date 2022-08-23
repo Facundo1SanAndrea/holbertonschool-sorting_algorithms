@@ -13,34 +13,21 @@ void selection_sort(int *array, size_t size)
 	if (!array || size == 0)
 		return;
 
-	for (step = 0; step < size - 1; step++)
+	for (i = 0; i < size - 1; i++)
 	{
-		min_idx = step;
-		for (i = step + 1; i < size; i++)
-		{
-			pass = 0;
-			if (array[i] < array[min_idx])
-			{
-				min_idx = i;
-				swap (&array[min_idx], &array[step]);
-				pass = 1;
-			}
-			if (step !=min_idx)
-				print_array(array, size);
-		}
-		if (pass == 0)
-			break;
-	}
-}
-/**
- *swap - swaps node
- *@xp: keep node
- *@yp: change node
- */
+		min_idx = i;
 
-void swap(int *xp, int *yp)
-{
-	int tmp = *xp;
-	*xp = *yp;
-	*yp = tmp;
+		for (step = i + 1; step < size; step++)
+		{
+			if (array[step] < array[min_idx])
+				min_idx = step;
+		}
+		if (min_idx != i)
+		{
+			pass = array[i];
+			array[i] = array[min_idx];
+			array[min_idx] = pass;
+			print_array(array, size);
+		}
+	}
 }
