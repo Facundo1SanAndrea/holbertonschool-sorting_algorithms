@@ -18,7 +18,7 @@ void quick_sort_partion(int *arr, int start, int end, size_t size)
 {
 	int i = start, j = start, pivot = end;
 
-	printf("empezo de nuevo\n");	
+	/*printf("empezo de nuevo\n");*/	
 	
 	while (j <= pivot)
 	{
